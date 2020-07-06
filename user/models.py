@@ -16,7 +16,6 @@ class User(AbstractUser):
     instrument = models.CharField(max_length=50, blank=True, null=True)
     since = models.DateField(null=True, blank=True)
     date_of_birth = models.DateField(null=True, blank=True)
-    # role = models.ManyToManyField(Roles, blank=True)
     skill = models.ManyToManyField(Skill_level,  blank=True)
     teacher = models.ForeignKey('self',on_delete=models.CASCADE,null=True,  related_name='teacher_name')
 
@@ -34,9 +33,3 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.username
-
-# class Student(models.Model):
-#     # teacher = models.ForeignKey(User, on_delete=models.CASCADE, related_name='teacher')
-#     user = models.ForeignKey(User, on_delete=models.CASCADE,related_name='user',)
-#     created = models.DateTimeField(auto_now_add=True)
-#     updated = models.DateTimeField(auto_now=True)
