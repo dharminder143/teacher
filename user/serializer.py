@@ -17,20 +17,11 @@ class UserSerializer(serializers.ModelSerializer):
         user.save()
         return user
 
-# class StudentSerializer(serializers.ModelSerializer):
-#     user = UserSerializer(many=True)
-#     class Meta:
-#         model = Student
-#         fields = ('id', 
-#                     'user',
-#                     'teacher',
-#                     'created',
-#                     'updated',
-#                     )
-    
-#     def create(self, validated_data):
-#         users = validated_data.pop('user')
-#         student = Student.objects.create(**validated_data)
-#         for user in users:
-#             User.objects.create(**users,user=student)
-#         return student
+    def update(self, instance, validated_data):
+        for attr, value in validated_data.items():
+            if attr == 'password':
+                instance.set_password(value)
+            else:
+                setattr(instance, attr, value)
+        instance.save()
+        return instance

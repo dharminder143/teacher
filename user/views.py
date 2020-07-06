@@ -34,3 +34,10 @@ class UserViewSet(ModelViewSet):
             permission_classes = [IsLoggedInUserOrAdmin]
         return [permission() for permission in permission_classes]
 
+    # def create(self, request, *args, **kwargs):
+    #     serializer = self.serializer_class(data=request.data)
+    #     serializer.is_valid(raise_exception=True)
+    #     validated_data = serializer.validated_data
+    #     # validated_data["user"] = request.user
+    #     Student = serializer.create(validated_data=validated_data)
+    #     return Response({"id": Student.id,"email":Student.user.email}, status=status.HTTP_201_CREATED)
