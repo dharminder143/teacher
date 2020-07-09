@@ -18,7 +18,7 @@ def _has_group_permission(user, required_groups):
 
 class IsLoggedInUserOrAdmin(permissions.BasePermission):
     # group_name for super admin
-    required_groups = ['admin','teacher']
+    required_groups = ['admin','teacher','student']
 
     def has_object_permission(self, request, view, obj):
         has_group_permission = _has_group_permission(request.user, self.required_groups)
