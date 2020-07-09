@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',  #add this line  
     'rest_framework.authtoken',  # add this line
     'user',  # add this line
+    'django_filters',
 ]
 
 AUTH_USER_MODEL = 'user.User'
@@ -123,3 +124,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+}
