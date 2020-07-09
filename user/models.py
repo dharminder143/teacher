@@ -17,7 +17,7 @@ class User(AbstractUser):
     since = models.DateField(null=True, blank=True)
     date_of_birth = models.DateField(null=True, blank=True)
     skill = models.ManyToManyField(Skill_level,  blank=True)
-    teacher = models.ForeignKey('self',on_delete=models.CASCADE,null=True,  related_name='teacher_name')
+    teacher = models.ForeignKey('self',on_delete=models.CASCADE,  related_name='teacher_name')
 
     REQUIRED_FIELDS = ['groups_id', 'email']
 

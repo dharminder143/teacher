@@ -5,7 +5,18 @@ from rest_framework import serializers
 class UserSerializer(serializers.ModelSerializer):
     teacher= serializers.HiddenField(default=serializers.CurrentUserDefault())
     class Meta:
-        fields = ('id', 'first_name', 'last_name', 'username', 'password', 'groups', 'email','teacher')
+        fields = ('id', 
+            'first_name', 
+            'last_name', 
+            'username', 
+            'email',
+            'groups',
+            'password',
+            'instrument',
+            'since',
+            'date_of_birth',
+            'skill',
+            'teacher')
         model = User
         extra_kwargs = {'password': {'write_only': True}}
 

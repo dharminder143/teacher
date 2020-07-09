@@ -13,4 +13,4 @@ admin.site.register(User,userAdmin)
 # 	model = Group
 # 	list_display = ['groups__id']
 
-# admin.site.register(Group,GroupAdmin)
+admin.site.register(Skill_level)
