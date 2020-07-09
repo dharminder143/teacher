@@ -41,7 +41,7 @@ class IsAdminUser(permissions.BasePermission):
 
 
 class IsAdminOrStudentUser(permissions.BasePermission):
-    required_groups = ['admin', 'teacher','assistant']
+    required_groups = ['admin', 'teacher','assistant','student']
 
     def has_permission(self, request, view):
         has_group_permission = _has_group_permission(request.user, self.required_groups)
